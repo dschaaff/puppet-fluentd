@@ -2,7 +2,7 @@
 #
 class fluentd::repo inherits fluentd {
   if $::fluentd::repo_manage {
-    case $::osfamily {
+    case $facts['osfamily'] {
       'Debian': {
         include ::fluentd::repo::apt
       }

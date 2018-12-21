@@ -3,12 +3,18 @@
 class fluentd::repo::yum (
   $ensure   = 'present',
   $descr    = 'TreasureData',
-  $baseurl  = 'https://packages.treasuredata.com/2/redhat/$releasever/$basearch',
   $enabled  = '1',
   $gpgcheck = '1',
   $gpgkey   = 'https://packages.treasuredata.com/GPG-KEY-td-agent',
 ) {
-
+  case $facts['os']['name'] {
+    'Amazon': {
+      $baseurl = 'http://packages.treasuredata.com/3/amazon/2/\$releasever/\$basearch'
+    }
+    default: {
+      $baseurl = 'http://packages.treasuredata.com/3/redhat/\$releasever/\$basearch'
+    }
+  }
   yumrepo { 'treasure-data':
     ensure   => $ensure,
     descr    => $descr,
