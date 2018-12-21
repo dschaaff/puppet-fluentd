@@ -9,10 +9,10 @@ class fluentd::repo::yum (
 ) {
   case $facts['os']['name'] {
     'Amazon': {
-      $baseurl = 'http://packages.treasuredata.com/3/amazon/2/\$releasever/\$basearch'
+      $baseurl = 'http://packages.treasuredata.com/3/amazon/2/$releasever/$basearch'
     }
     default: {
-      $baseurl = 'http://packages.treasuredata.com/3/redhat/\$releasever/\$basearch'
+      $baseurl = 'http://packages.treasuredata.com/3/redhat/$releasever/$basearch'
     }
   }
   yumrepo { 'treasure-data':

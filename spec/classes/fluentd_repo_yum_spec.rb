@@ -13,7 +13,7 @@ describe 'fluentd::repo::yum', :type => :class do
           it {
             should contain_yumrepo('treasure-data').with({
               'ensure'   => 'present',
-              'baseurl'  => 'http://packages.treasuredata.com/3/redhat/\$releasever/\$basearch',
+              'baseurl'  => 'http://packages.treasuredata.com/3/redhat/$releasever/$basearch',
               'descr'    => 'TreasureData',
               'enabled'  => '1',
               'gpgcheck' => '1'
@@ -31,7 +31,7 @@ describe 'fluentd::repo::yum', :type => :class do
           it {
             should contain_yumrepo('treasure-data').with({
               'ensure'   => 'present',
-              'baseurl'  => 'http://packages.treasuredata.com/3/amazon/2/\$releasever/\$basearch',
+              'baseurl'  => 'http://packages.treasuredata.com/3/amazon/2/$releasever/$basearch',
               'descr'    => 'TreasureData',
               'enabled'  => '1',
               'gpgcheck' => '1'
